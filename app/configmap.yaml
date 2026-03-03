@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html
+  namespace: default
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ArgoCD Test</title>
+      <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+        .card {
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 20px;
+          padding: 60px 80px;
+          text-align: center;
+          max-width: 600px;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .logo { font-size: 72px; margin-bottom: 20px; }
+        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; }
+        p { font-size: 1.1rem; opacity: 0.75; margin-bottom: 30px; line-height: 1.6; }
+        .badge {
+          display: inline-block;
+          background: linear-gradient(90deg, #ef5350, #b71c1c);
+          padding: 8px 22px;
+          border-radius: 30px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin: 6px;
+        }
+        .badge.green { background: linear-gradient(90deg, #43a047, #1b5e20); }
+        .badge.blue { background: linear-gradient(90deg, #1e88e5, #0d47a1); }
+        .footer { margin-top: 40px; font-size: 0.8rem; opacity: 0.45; }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <div class="logo">⚓</div>
+        <h1>ArgoCD Test App</h1>
+        <p>This page is deployed via <strong>ArgoCD</strong> on a <strong>k3d</strong> cluster.<br/>
+        GitOps is working — any push to the repo triggers a sync!</p>
+        <div>
+          <span class="badge green">k3d running</span>
+          <span class="badge blue">ArgoCD synced</span>
+          <span class="badge">nginx</span>
+        </div>
+        <div class="footer">inception-of-thinks · argocd_test · 2026</div>
+      </div>
+    </body>
+    </html>
